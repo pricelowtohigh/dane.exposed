@@ -7,11 +7,14 @@ const cors = require("cors");
 
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
+const messagesRouter = require("./messages/messages.router")
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/", messagesRouter)
 
 app.use(notFound);
 app.use(errorHandler);
