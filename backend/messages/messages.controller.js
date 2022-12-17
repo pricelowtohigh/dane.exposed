@@ -14,9 +14,10 @@ async function createMessage ( req, res ) {
 }
 
 async function readMessages ( req, res ) {
-    const { message_id } = req.params.message_id;
+    const message_id = req.params.message_id;
+    console.log("read message")
     const responseData = await messagesService.readMessages(message_id)
-    res.status(200).jsaon({ data: responseData })
+    res.status(200).json({ data: responseData })
 }
 
 module.exports = {
