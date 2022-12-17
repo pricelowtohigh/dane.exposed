@@ -8,4 +8,9 @@ router
     .post(controller.createMessage)
     .all(methodNotAllowed);
 
+router
+    .route("/:message_id")
+    .get(controller.readMessages)
+    .all(methodNotAllowed);
+
 module.exports = router;

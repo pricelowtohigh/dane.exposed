@@ -13,7 +13,15 @@ function createMessage (newMessage) {
         .then((createdRecord) => createdRecord[0])
 }
 
+function readMessages(message_id) {
+    return knex("messages")
+        .select("*")
+        .where({ message_id: message_id })
+        .first();
+}
+
 module.exports = {
     listMessages,
-    createMessage
+    createMessage,
+    readMessages
 }

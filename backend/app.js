@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/", messagesRouter)
+app.use("/messages", messagesRouter)
 
 app.use(notFound);
 app.use(errorHandler);
