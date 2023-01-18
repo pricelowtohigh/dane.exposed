@@ -25,15 +25,18 @@ export function MessageForm () {
         event.preventDefault();
         try {
             setErrors(null);
-            console.log("POST request here")
-            //await axios.post(URL + "/messages")
+            console.log("POST request attempted")
+            await axios.post(URL + "/messages", { data: formData });
+            console.log("POST reqest completed")
+            const response = await axios.get(URL + "/messages/")
+            console.log(response)
             setFormData(initialFormState)
+            window.location.reload()
             navigate("/messages")
-
+          
         } catch (error) {
             setErrors(error.response.data.error);
         }
-        // axios.post
     }
 
     return (

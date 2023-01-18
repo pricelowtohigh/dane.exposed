@@ -13,14 +13,14 @@ function Messages() {
         const abortController = new AbortController();
         setErrors(null);
         async function listMessages() {
-        try {
-            const response = await axios.get(URL + "/messages", {
-                signal: abortController.signal,
-            })
-            setMessages(response.data.data)
-        } catch (error) {
-            setErrors(error);
-        }
+            try {
+                const response = await axios.get(URL + "/messages", {
+                    signal: abortController.signal,
+                })
+                setMessages(response.data.data)
+            } catch (error) {
+                setErrors(error);
+            }
         }
         listMessages();
         return () => abortController.abort();
